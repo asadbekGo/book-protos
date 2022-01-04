@@ -2,8 +2,6 @@ syntax="proto3";
 
 package catalog;
 
-import "order.proto";
-
 service CatalogService {
 
     rpc CreateAuthor(Author) returns (Author);
@@ -23,12 +21,6 @@ service CatalogService {
     rpc GetBooks(ListReq) returns (BookListResp);
     rpc UpdateBook(NewBook) returns (Book);
     rpc DeleteBook(ByIdReq) returns (Empty);
-
-    rpc CreateOrder(Order) returns (Order);
-    rpc GetOrder(ByIdReq) returns (Order);
-    rpc GetOrders(ListReq) returns (ListOrderResp);
-    rpc UpdateOrder(Order) returns (Order);
-    rpc DeleteOrder(ByIdReq) returns (Empty);
 }
 
 message Author {
@@ -80,16 +72,3 @@ message BookListResp {
 }
 
 message Empty {}
-
-message Order {
-    string id = 1;
-    string book_id = 2;
-    string description = 3;
-    string createdAt = 4;
-    string updatedAt = 5;
-}
-
-message ListOrderResp {
-    repeated Order orders = 1;
-    int64 count = 2;
-}
