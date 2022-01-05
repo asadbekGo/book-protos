@@ -17,7 +17,6 @@ message Order {
 	string description = 4;
 	string createdAt = 5;
     string updatedAt = 6;
-    string deletedAt = 7;
 }
 
 message ByIdReq {
