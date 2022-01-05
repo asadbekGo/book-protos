@@ -13,22 +13,16 @@ message Author {
 message Category {
     string id = 1;
     string name = 2;
-    string createdAt = 3;
-    string updatedAt = 4;
-}
-
-message NewBook {
-    string id = 1;
-    string name = 2;
-    string author_id = 3;
-    repeated string category_id = 4;
+    string parentUUID = 3;
+    string createdAt = 4;
+    string updatedAt = 5;
 }
 
 message Book {
     string id = 1;
     string name = 2;
     Author author= 3;
-    repeated Category cateory = 4;
+    repeated Category categoryId = 4;
     string createdAt = 5;
     string updatedAt = 6;
 }
