@@ -22,6 +22,12 @@ message Book {
     string id = 1;
     string name = 2;
     string authorId= 3;
+}
+
+message BookResp {
+    string id = 1;
+    string name = 2;
+    Author author= 3;
     string createdAt = 4;
     string updatedAt = 5;
 }
@@ -52,7 +58,7 @@ message BookListReq {
 }
 
 message BookListResp {
-    repeated Book books = 1;
+    repeated BookResp books = 1;
     int64 count = 2;
 }
 
@@ -62,7 +68,7 @@ message BookCategory {
 }
 
 message BookCategoryResp {
-    Book book = 1;
+    BookResp book = 1;
     repeated Category category = 2;
 }
 
