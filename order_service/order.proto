@@ -3,16 +3,22 @@ syntax = "proto3";
 package order;
 
 service OrderService {
-	rpc CreateOrder(Order) returns (Order);
-	rpc GetOrder(ByIdReq) returns (Order);
+	rpc CreateOrder(OrderReq) returns (OrderResp);
+	rpc GetOrder(ByIdReq) returns (OrderResp);
 	rpc ListOrders(ListReq) returns (ListResp);
-	rpc UpdateOrder(Order) returns (Order);
+	rpc UpdateOrder(OrderReq) returns (OrderResp);
 	rpc DeleteOrder(ByIdReq) returns (Empty);
 }
 
-message Order {
+message OrderReq {
 	string id = 1;
-	string book_id = 2;
+	string bookId = 2;
+	string description = 3;
+}
+
+message OrderResp {
+	string id = 1;
+	string book = 2;
 	string description = 3;
 	string createdAt = 4;
     string updatedAt = 5;
@@ -28,9 +34,8 @@ message ListReq {
 }
 
 message ListResp {
-    repeated Order orders = 1;
+    repeated OrderResp orders = 1;
     int64 count = 2;
 }
 
 message Empty {}
-
